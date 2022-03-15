@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewapp.R;
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
     private String[] localDataSet;
@@ -23,7 +25,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             super(view);
             // Define click listener for the ViewHolder's View
 
-            textView = (TextView) view.findViewById(R.id.textView3);
+            textView = (TextView) view.findViewById(R.id.textView);
         }
 
         public TextView getTextView() {
@@ -32,7 +34,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     /**
-     * Initialize the dataset of the Adapter.
+     * Step 1: Initialize the dataset of the Adapter.
      *
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
@@ -41,18 +43,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         localDataSet = dataSet;
     }
 
-    // Create new views (invoked by the layout manager)
+    //Step 2:  Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.text_row_item, viewGroup, false);
+                .inflate(R.layout.row_item, viewGroup, false);
 
         return new ViewHolder(view);
     }
 
 
-    // Replace the contents of a view (invoked by the layout manager)
+    //Step 3:  Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
